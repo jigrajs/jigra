@@ -1,0 +1,21 @@
+{
+  "name": "@jigra/ios",
+  "version": "2.4.0",
+  "description": "Jigra: cross-platform mobile apps with the web",
+  "homepage": "https://jigrajs.web.app/",
+  "author": "Family Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jigrajs/jigra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jigrajs/jigra/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@jigra/core": "~2.4.0"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@jigra/electron",
+  "version": "2.4.0",
+  "description": "Jigra: cross-platform mobile apps with the web",
+  "homepage": "https://jigrajs.web.app/",
+  "author": "Family Team",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "cordova.js",
+    "native-bridge.js"
+  ],
+  "scripts": {
+    "docs": "cd ../site && gulp && cd ../core && ./node_modules/.bin/typedoc --exclude **/__test__/*.ts --json dist/docs.json --mode modules src/core-plugin-definitions.ts && node scripts/docs.js",
+    "build": "npm run clean && npm run transpile && npm run rollup && npm run minify",
+    "clean": "rimraf dist",
+    "minify": "uglifyjs --mangle --compress --source-map \"content='dist/electron-bridge.js.map',url='electron-bridge.js.map'\" --comments '/^/*!/' --output dist/electron-bridge.js dist/electron-bridge.js",
+    "prepublishOnly": "npm run build",
+    "rollup": "rollup --config rollup.config.js",
+    "transpile": "tsc --module ES2015 --target ES5 --outDir dist/esm",
+    "transpile-no-helpers": "tsc --module ES2015 --target ES5 --noEmitHelpers true --outDir dist/esm"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "@familyjs/pwa-elements": "1.5.2",
+    "@types/lodash": "4.14.104",
+    "rimraf": "2.6.1",
+    "rollup": "0.52.0",
+    "rollup-plugin-node-resolve": "3.0.3",
+    "tslib": "1.9.0",
+    "tslint": "5.8.0",
+    "tslint-family-rules": "0.0.21",
+    "typedoc": "0.9.0",
+    "typescript": "3.4.5",
+    "uglify-js": "3.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jigrajs/jigra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jigrajs/jigra/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@jigra/core": "^2.4.0"
+  }
+}

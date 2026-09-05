@@ -1,0 +1,50 @@
+{
+  "name": "@jigra/core",
+  "version": "2.4.0",
+  "description": "Jigra: cross-platform mobile apps with the web",
+  "homepage": "https://jigrajs.web.app/",
+  "author": "Family Team",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "cordova.js",
+    "native-bridge.js"
+  ],
+  "scripts": {
+    "docs": "./node_modules/.bin/typedoc --exclude **/__test__/*.ts --json dist/docs.json --mode modules src/core-plugin-definitions.ts && node scripts/docs.js",
+    "build": "npm run clean && npm run transpile && npm run rollup && npm run minify",
+    "clean": "rimraf dist",
+    "lint": "tslint --project tsconfig.json",
+    "minify": "terser --mangle --compress --source-map \"content='dist/jigra.js.map',url='jigra.js.map'\" --comments '/^/*!/' --output dist/jigra.js dist/jigra.js",
+    "prepublishOnly": "npm run build",
+    "rollup": "rollup --config rollup.config.js",
+    "transpile": "tsc --module ES2015 --target ES5 --outDir dist/esm"
+  },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/jigra.js",
+  "typings": "dist/esm/index.d.ts",
+  "devDependencies": {
+    "rimraf": "2.6.1",
+    "rollup": "1.12.3",
+    "rollup-plugin-node-resolve": "5.0.0",
+    "terser": "4.0.0",
+    "tslint": "5.8.0",
+    "tslint-family-rules": "0.0.21",
+    "typedoc": "0.14.2",
+    "typescript": "3.7.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jigrajs/jigra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jigrajs/jigra/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "tslib": "1.9.0"
+  }
+}

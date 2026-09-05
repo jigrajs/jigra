@@ -1,0 +1,11 @@
+platform :ios, '11.0'
+
+target 'Jigra' do
+  use_frameworks!
+  pod 'JigraCordova', :path => '../../'
+  target 'JigraTests' do
+    inherit! :search_paths
+    
+  end
+
+end

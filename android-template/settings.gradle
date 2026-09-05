@@ -1,0 +1,5 @@
+include ':app'
+include ':jigra-cordova-android-plugins'
+project(':jigra-cordova-android-plugins').projectDir = new File('./jigra-cordova-android-plugins/')
+
+apply from: 'jigra.settings.gradle'

@@ -1,0 +1,15 @@
+{
+  "name": "jigra-app",
+  "version": "1.0.0",
+  "description": "An Amazing Jigra App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jigra",
+    "mobile"
+  ],
+  "author": "",
+  "license": "ISC"
+}
