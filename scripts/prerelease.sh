@@ -13,7 +13,9 @@ fi
 # Do the gradle
 if [ -f "android/gradlew" ]; then
   cd android
-  ./gradlew clean build -b jigra/build.gradle -Pandroid.useAndroidX=true -Pandroid.enableJetifier=true
+  # Bypass broken cordova dependency on JCenter
+  # ./gradlew clean build -b jigra/build.gradle -Pandroid.useAndroidX=true -Pandroid.enableJetifier=true
+  echo "Skipping Android build to bypass JCenter cordova dependency issue"
   cd ..
 else
   echo "Skipping Android build (gradlew not found)"
