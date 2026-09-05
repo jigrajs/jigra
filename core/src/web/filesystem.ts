@@ -87,7 +87,7 @@ export class FilesystemPluginWeb extends WebPlugin implements FilesystemPlugin {
         return new Promise<IDBObjectStore>((resolve, reject) => {
           const tx: IDBTransaction = conn.transaction(['FileStorage'], readFlag);
           const store: any = tx.objectStore('FileStorage');
-          const req = store[cmd](...args);
+          const req = store[cmd].apply(store, args);
           req.onsuccess = () => resolve(req.result);
           req.onerror = () => reject(req.error);
         });
@@ -102,7 +102,7 @@ export class FilesystemPluginWeb extends WebPlugin implements FilesystemPlugin {
           const tx: IDBTransaction = conn.transaction(['FileStorage'], readFlag);
           const store: IDBObjectStore = tx.objectStore('FileStorage');
           const index: any = store.index(indexName);
-          const req = index[cmd](...args) as any;
+          const req = index[cmd].apply(index, args) as any;
           req.onsuccess = () => resolve(req.result);
           req.onerror = () => reject(req.error);
         });

@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
+      "skipLibCheck": true,
+      "types": [],
       "strict": true,
+      "noImplicitAny": false,
       "lib": ["es2016"],
       "outDir": "dist",
       "module": "commonjs",
@@ -11,6 +14,7 @@
       //"noUnusedParameters": true
   },
   "files": [
-      "src/index.ts"
+      "src/index.ts",
+      "src/node-env.d.ts"
   ]
 }

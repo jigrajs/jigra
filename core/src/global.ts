@@ -1,3 +1,5 @@
+declare var global: any;
+
 import { Jigra as _Jigra } from './definitions';
 import { JigraWeb } from './web-runtime';
 
