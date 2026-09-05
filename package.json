@@ -2,7 +2,7 @@
   "name": "jigra",
   "private": true,
   "scripts": {
-    "publish": "bash scripts/prerelease.sh && lerna run build && lerna publish --repo-version 2.4.0 --dist-tag latest-v2 --force-publish --skip-git --yes && npm run publish-push",
+    "publish": "bash scripts/prerelease.sh && lerna run build && node scripts/publish-packages.js && npm run publish-push",
     "publish-push": "bash scripts/deploy.sh"
   },
   "devDependencies": {
